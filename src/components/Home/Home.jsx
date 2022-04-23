@@ -1,23 +1,14 @@
 import React from "react";
 import "./Home.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchMovies,
-  fetchPersons,
-  fetchTvShows,
-} from "features/movies/moviesSlice";
-import { Loading, SliderArea } from "components/export";
-/* funct */
+import {fetchMovies, fetchPersons, fetchTvShows,} from "../../features/Movie/moviesSlice";
+import Loading from "../Loading/Loading";
+import MainPage from "../MainPage/MainPage";
+
+
 const Home = () => {
   const dispatch = useDispatch();
-  const {
-    movies,
-    tvShows,
-    persons,
-    moviesLoading,
-    tvShowsLoading,
-    personsLoading,
-  } = useSelector((state) => state.movies);
+  const {movies, tvShows, persons, moviesLoading, tvShowsLoading, personsLoading,} = useSelector((state) => state.movies);
 
   React.useEffect(() => {
     dispatch(fetchPersons());
@@ -28,17 +19,17 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-container">
-        <SliderArea
+        <MainPage
           title="Trending movies this week"
           data={movies}
           loading={moviesLoading}
         />
-        <SliderArea
+        <MainPage
           title="Trending tv shows this week"
           data={tvShows}
           loading={tvShowsLoading}
         />
-        <SliderArea
+        <MainPage
           title="Trending persons this week"
           data={persons}
           loading={personsLoading}

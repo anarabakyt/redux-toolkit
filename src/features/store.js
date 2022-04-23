@@ -1,8 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
-import hotelSlice from './Hotel/hotelSlice';
+import moviesReducer from './Movie/moviesSlice';
+import detailsReducer from "./details/detailsSlice";
+
 export const store=configureStore({
     reducer:{
-     hotels:hotelSlice,
+     movies:moviesReducer,
+     details:detailsReducer
 
     },
 });

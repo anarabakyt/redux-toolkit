@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to={"/"} className="header-title">
-        <h1>HotelsApp</h1>
+        <h1>Movies-App</h1>
       </Link>
       <SearchBox />
       <a
