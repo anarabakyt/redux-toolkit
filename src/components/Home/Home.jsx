@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchMovies, fetchPersons, fetchTvShows,} from "../../features/Movie/moviesSlice";
@@ -9,8 +9,9 @@ import MainPage from "../MainPage/MainPage";
 const Home = () => {
   const dispatch = useDispatch();
   const {movies, tvShows, persons, moviesLoading, tvShowsLoading, personsLoading,} = useSelector((state) => state.movies);
+  console.log(movies)
 
-  React.useEffect(() => {
+ useEffect(() => {
     dispatch(fetchPersons());
     dispatch(fetchMovies());
     dispatch(fetchTvShows());

@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { MoviesService } from "../../common/Api";
 /* thunk */
+let API_KEY='3ea269efccf77ad8d8cd4800d699fb82'
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
   const response = await MoviesService.get(
-    `trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}`
+    `trending/movie/week?api_key=${API_KEY}`
   );
   return response.data.results;
 });
@@ -12,7 +13,7 @@ export const fetchTvShows = createAsyncThunk(
   "movies/fetchTvShows",
   async () => {
     const response = await MoviesService.get(
-      `trending/tv/week?api_key=${process.env.REACT_APP_API_KEY}`
+      `trending/tv/week?api_key=${API_KEY}`
     );
     return response.data.results;
   }
@@ -22,7 +23,7 @@ export const fetchPersons = createAsyncThunk(
   "movies/fetchPersons",
   async () => {
     const response = await MoviesService.get(
-      `trending/person/week?api_key=${process.env.REACT_APP_API_KEY}`
+      `trending/person/week?api_key=${API_KEY}`
     );
     return response.data.results;
   }
@@ -32,7 +33,7 @@ export const fetchSearch = createAsyncThunk(
   "movies/fetchSearch",
   async (query) => {
     const response = await MoviesService.get(
-      `search/multi?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&page=1`
+      `search/multi?api_key=${API_KEY}&query=${query}&page=1`
     );
     return response.data.results;
   }
