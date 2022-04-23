@@ -2,6 +2,7 @@ import React from 'react'
 import Loading from '../Loading/Loading'
 import Settings from '../../common/settings'
 import { Link } from 'react-router-dom'
+import './MainPage.scss'
 
 
 const MainPage = ({title,data,loading}) => {
@@ -15,12 +16,12 @@ const MainPage = ({title,data,loading}) => {
         return ''
     }
   return (
-    <div>
+    <div className='container-movies'>
         {
             loading ? (<Loading/>):
             (<div className='movies'>
                 <h3>{title}</h3>
-                <div>
+                <div className='movie'>
                     {
                         data.map((item)=>(
                             <Link className='container-item' to={`/details/${item.media_type}-${item.id}`} key={item.id}>
