@@ -1,68 +1,110 @@
-import {createAsyncThunk,createSlice} from '@reduxjs/toolkit'
-import axios from "axios";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { MoviesService } from "common/api/MoviesService";
+/* thunk */
+export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
+  const response = await MoviesService.get(
+    `trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}`
+  );
+  return response.data.results;
+});
 
+export const fetchTvShows = createAsyncThunk(
+  "movies/fetchTvShows",
+  async () => {
+    const response = await MoviesService.get(
+      `trending/tv/week?api_key=${process.env.REACT_APP_API_KEY}`
+    );
+    return response.data.results;
+  }
+);
 
-const options = {
-    method: 'GET',
-    url: 'https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates',
-    params: {
-      order_by: 'popularity',
-      adults_number: '2',
-      units: 'metric',
-      room_number: '1',
-      checkout_date: '2022-10-01',
-      filter_by_currency: 'AED',
-      locale: 'en-gb',
-      checkin_date: '2022-09-30',
-      latitude: '65.9667',
-      longitude: '-18.5333',
-      children_number: '2',
-      children_ages: '5,0',
-      categories_filter_ids: 'class::2,class::4,free_cancellation::1',
-      page_number: '0',
-      include_adjacency: 'true'
+export const fetchPersons = createAsyncThunk(
+  "movies/fetchPersons",
+  async () => {
+    const response = await MoviesService.get(
+      `trending/person/week?api_key=${process.env.REACT_APP_API_KEY}`
+    );
+    return response.data.results;
+  }
+);
+
+export const fetchSearch = createAsyncThunk(
+  "movies/fetchSearch",
+  async (query) => {
+    const response = await MoviesService.get(
+      `search/multi?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&page=1`
+    );
+    return response.data.results;
+  }
+);
+
+const initialState = {
+  movies: [],
+  moviesLoading: false,
+  tvShows: [],
+  tvShowsLoading: false,
+  persons: [],
+  personsLoading: false,
+  searchList: [],
+  searchText: "",
+  searchLoading: false,
+};
+
+const moviesSlice = createSlice({
+  name: "movies",
+  initialState,
+  reducers: {
+    setSearchText: (state, action) => {
+      state.searchText = action.payload;
     },
-    headers: {
-      'X-RapidAPI-Host': 'booking-com.p.rapidapi.com',
-      'X-RapidAPI-Key': '067b12b2eemsh5a669c5248b9c97p1d77f9jsnb910f7a0e1ec'
-    }
-  };
-  
-export const fetchHotel=createAsyncThunk('api/hotels',async(obj,{state,error})=>{
-    try{
-        const req =await axios.request(options)
-    console.log(req.data.hotels)
-    return req.data.hotels
-    }catch(error){
-        console.log(error)
-    }
-   
-})
-
-/* const initialState = {
-    hotels: [],
-    
-  }; */
-  
-  const hotelSlice = createSlice({
-    name: "hotels",
-    initialState:[],
-    reducers: { },
-    extraReducers: {
-      /* [fetchHotel.pending]: (state, action) => {
-        state.moviesLoading = true;
-      }, */
-      [fetchHotel.fulfilled]: (state, action) => {
-       return action.payload
-      },
-      [fetchHotel.rejected]: (state, action) => {
-        return []
-      },
-  
-     
+  },
+  extraReducers: {
+    [fetchMovies.pending]: (state, action) => {
+      state.moviesLoading = true;
     },
-  });
-  
-  export const actions = hotelSlice.actions;
-  
-  export default hotelSlice.reducer;
+    [fetchMovies.fulfilled]: (state, action) => {
+      state.movies = action.payload;
+      state.moviesLoading = false;
+    },
+    [fetchMovies.rejected]: (state, action) => {
+      state.moviesLoading = false;
+    },
+
+    [fetchTvShows.pending]: (state, action) => {
+      state.tvShowsLoading = true;
+    },
+    [fetchTvShows.fulfilled]: (state, action) => {
+      state.tvShows = action.payload;
+      state.tvShowsLoading = false;
+    },
+    [fetchTvShows.rejected]: (state, action) => {
+      state.tvShowsLoading = false;
+    },
+
+    [fetchPersons.pending]: (state, action) => {
+      state.personsLoading = true;
+    },
+    [fetchPersons.fulfilled]: (state, action) => {
+      state.persons = action.payload;
+      state.personsLoading = false;
+    },
+    [fetchPersons.rejected]: (state, action) => {
+      state.personsLoading = false;
+    },
+
+    [fetchSearch.pending]: (state, action) => {
+      state.searchLoading = true;
+    },
+    [fetchSearch.fulfilled]: (state, action) => {
+      state.searchList = action.payload;
+      state.searchLoading = false;
+    },
+    [fetchSearch.rejected]: (state, action) => {
+      state.searchLoading = false;
+    },
+  },
+});
+
+export const { setSearchText } = moviesSlice.actions;
+
+export default moviesSlice.reducer;
