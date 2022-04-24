@@ -5,6 +5,7 @@ import './MoviesDetail.scss'
 import {fetchMoviesDetails} from '../../features/details/detailsSlice'
 import {} from 'react-icons/ai'
 import Loading from '../Loading/Loading'
+import Header from '../Header/Header'
 
 const MoviesDetail = () => {
     let {id}=useParams()
@@ -16,7 +17,7 @@ const MoviesDetail = () => {
     },[dispatch,id]);
   return (
     <div>
-        
+        <Header/>
     </div>
   )
 }

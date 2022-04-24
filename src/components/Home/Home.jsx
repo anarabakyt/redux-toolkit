@@ -9,7 +9,7 @@ import MainPage from "../MainPage/MainPage";
 const Home = () => {
   const dispatch = useDispatch();
   const {movies, tvShows, persons, moviesLoading, tvShowsLoading, personsLoading,} = useSelector((state) => state.movies);
-  console.log(movies)
+  //console.log(movies)
 
  useEffect(() => {
     dispatch(fetchPersons());

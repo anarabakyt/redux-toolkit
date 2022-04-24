@@ -5,6 +5,10 @@
     flex-wrap: wrap;
     margin: auto;
 width: 1200px;
+h3{
+    font-size: 20px;
+    color: #81de08;
+}
 .container-item {
     width: 180px;
     height: 250px;
@@ -45,4 +49,9 @@ width: 1200px;
         text-align: center;
         padding: 5px 10px;
       }
+
+     
+}
+.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root{
+  color:white !important;
 }
