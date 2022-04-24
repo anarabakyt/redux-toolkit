@@ -5,7 +5,6 @@ import './MoviesDetail.scss'
 import {moviesDetail} from '../../features/details/detailsSlice'
 import { AiFillAppstore, AiFillStar, AiOutlineCheck, AiOutlineClose, AiOutlineFieldTime, AiOutlineLink } from 'react-icons/ai'
 import Loading from '../Loading/Loading'
-import Header from '../Header/Header'
 import './MoviesDetail.scss'
 
 
@@ -15,7 +14,8 @@ const MoviesDetail = () => {
   const dispatch = useDispatch();
   const { details, loading } = useSelector((state) => state.details);
   const type = id.split("-")[0];
-  React.useEffect(() => {
+  
+  useEffect(() => {
     dispatch(moviesDetail(id));
   }, [dispatch, id]);
 

@@ -1,0 +1,26 @@
+.search-detail {
+    display: flex;
+    flex: 1;
+    min-height: 83.3vh;
+    flex-direction: column;
+    .show-results {
+      font-size: 44px;
+      color: #00b894;
+      font-weight: bold;
+    }
+    .show-results-err {
+      h1 {
+        font-size: 44px;
+        color: #ff4820;
+        font-weight: bold;
+      }
+      a {
+        color: #fff;
+        font-weight: bold;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        gap: 0 5px;
+      }
+    }
+  }
