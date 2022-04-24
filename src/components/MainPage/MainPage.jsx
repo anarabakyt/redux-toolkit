@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './MainPage.scss'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import defaultImage from '../../images/default-image.jpg'
 
 
 
@@ -35,14 +36,14 @@ const end=start+howManyElements;
    
     };
     console.log(data)
-    const lastImage=(img)=>{
+    const lastImage=(item)=>{
         let baseURL='https://image.tmdb.org/t/p/w500/';
-        if(img.poster_path){
-            return (baseURL+=img.poster_path);
-        }else if(img.profile_path){
-            return (baseURL+=img.profile_path)
+        if(item.poster_path){
+            return (baseURL+=item.poster_path);
+        }else if(item.profile_path){
+            return (baseURL+=item.profile_path)
         }
-        return ''
+        return defaultImage
     }
 
   return (

@@ -31,4 +31,4 @@ const detailSlice=createSlice({
         },
     }
 })
-export default detailSlice
+export default detailSlice.reducer

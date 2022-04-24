@@ -1,11 +1,12 @@
 .movies-detail {
-    width: 100%;
+    width: 80%;
     height: 100%;
     min-height: 83.3vh;
     display: flex;
     flex: 1;
     padding: 20px 0;
     overflow: hidden;
+    margin: auto;
     &__container {
       width: 100%;
       height: 100%;
@@ -26,7 +27,7 @@
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: var(--color-star);
+            color: #ffc107;
             gap: 0 5px;
             .icon {
               font-size: 16px;
@@ -37,7 +38,7 @@
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: var(--color-white);
+            color: #fff;
             gap: 0 5px;
             .icon {
               font-size: 16px;
@@ -48,7 +49,7 @@
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: var(--color-green);
+            color: #00b894;
             gap: 0 5px;
             .icon {
               font-size: 16px;
@@ -59,7 +60,7 @@
             display: flex;
             align-items: center;
             font-size: 24px;
-            color: var(--color-orangered);
+            color: #ff4821;
             gap: 0 5px;
             .icon {
               font-size: 16px;
@@ -71,13 +72,13 @@
           p {
             width: 100%;
             font-size: 20px;
-            color: var(--color-white);
+            color: #fff;
             line-height: 18px;
           }
           a {
             display: inline-block;
             text-align: right;
-            color: var(--color-orange);
+            color: #ff8a71;
             font-size: 18px;
           }
         }

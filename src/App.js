@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -14,6 +14,7 @@ class App extends Component{
 
     return(
       <div className='App'>
+        <BrowserRouter>
         <Header/>
         <div className="container">
         <Routes>
@@ -26,7 +27,7 @@ class App extends Component{
             <Route path="*" element={<NoFoundPage />} />
           </Routes>
         </div>
-      
+      </BrowserRouter>
       </div>
     )
   }
