@@ -1,13 +1,19 @@
 import React,{useState} from 'react'
 import Loading from '../Loading/Loading'
-import Settings from '../../common/settings'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './MainPage.scss'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 
+
+
 const MainPage = ({title,data,loading}) => {
+   
+    const navigate = useNavigate();
+
+
+
     const [pageNow,setPageNow] = useState(1)
     const howManyElements  = 6
     const [howManyPages,setHowManyPages] = useState(0)
@@ -18,10 +24,14 @@ const end=start+howManyElements;
     const handleChange = (event, value) => {
       setPageNow(value);
       console.log(value)
-     /*  const numberOfPage=6;
-    const start=page*numberOfPage
-    const end=start+numberOfPage
-    let slicePage=currentPage.slice(start,end) */
+     
+      navigate({
+        pathname: '/',
+        page: `?page=${value}`
+      });
+  
+      
+   
    
     };
     console.log(data)
