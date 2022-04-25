@@ -1,5 +1,5 @@
 .movies-detail {
-    width: 80%;
+    width: 85%;
     height: 100%;
     min-height: 83.3vh;
     display: flex;
@@ -16,14 +16,14 @@
       &-content {
         flex: 1;
         &-title {
-          font-size: 44px;
+          font-size: 40px;
           color:black;
         }
         &-info {
           display: flex;
           align-items: center;
           gap: 0 20px;
-          font-size: 24px;
+          font-size: 20px;
           .star {
             display: flex;
             align-items: center;
@@ -38,7 +38,7 @@
           .date {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 20px;
             color: rgb(15, 8, 8);
             gap: 0 5px;
             .icon {
@@ -49,7 +49,7 @@
           .status {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 20px;
             color: #00b894;
             gap: 0 5px;
             .icon {
@@ -103,6 +103,7 @@
         }
       }
     }
+    
   }
   
   .image-gallery-thumbnail-image {
