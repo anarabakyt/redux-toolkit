@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     margin: auto;
 width: 1200px;
+
 h3{
     font-size: 20px;
     color: #121f01;
@@ -53,4 +54,9 @@ h3{
   .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root{
   color:white !important;
 }   
+@media screen and(max-width:678px) {
+  display: grid;
+  grid-template-columns: 1fr,1fr;
+  
+}
 }
