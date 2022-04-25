@@ -61,11 +61,11 @@ const end=start+howManyElements;
                         ))
                     }
                 </div>
-             <div style={{display:'flex',justifyContent:'center'}}>
-             <Stack spacing={2} color='secondary'>
+             <div style={{display:'flex',justifyContent:'center', color:'white'}}>
+             <Stack  spacing={2} color='secondary'>
      
       
-     <Pagination  count={Math.ceil(data.length/6)} color="secondary" /* page={page} */ onChange={handleChange} />
+     <Pagination  count={Math.ceil(data.length/6)} color="secondary" onChange={handleChange} />
      
    </Stack>
              </div>
