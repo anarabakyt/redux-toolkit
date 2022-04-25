@@ -1,8 +1,11 @@
 import React from 'react'
-
+import '../../App.scss'
+import { Dots } from 'loading-animations-react';
 const Loading = () => {
   return (
-    <div>Loading...</div>
+    <div className='loading'>
+      <Dots />
+    </div>
   )
 }
 

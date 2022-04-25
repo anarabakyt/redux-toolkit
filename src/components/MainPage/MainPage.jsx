@@ -49,7 +49,7 @@ const end=start+howManyElements;
         {
             loading ? (<Loading/>):
             (<div className='movies'>
-                <h3 style={{color:'#81de08',fontSize:'24px',margin:'5px'}}>{title}</h3>
+                <h3 style={{color:'#000',fontSize:'24px',margin:'5px'}}>{title}</h3>
                 <div className='movie'>
                     {
                         data.slice(start,end).map((item)=>(
